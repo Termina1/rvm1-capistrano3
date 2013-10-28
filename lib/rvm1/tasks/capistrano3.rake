@@ -1,3 +1,5 @@
+require('sshkit')
+
 SSHKit.config.command_map = Hash.new do |hash, key|
   if fetch(:rvm1_map_bins).include?(key.to_s)
     hash[key] = "#{fetch(:tmp_dir)}/#{fetch(:application)}/rvm-auto.sh #{fetch(:rvm1_ruby_version)} #{key}"
